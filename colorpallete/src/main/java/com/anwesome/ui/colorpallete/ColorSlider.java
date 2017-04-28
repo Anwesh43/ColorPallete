@@ -26,6 +26,12 @@ public class ColorSlider {
         this.w = w;
         this.h = h;
     }
+    public char getColorChar() {
+        return colorChar;
+    }
+    public int getValue() {
+        return  (int)(255*(colorSliderCircle.x*1.0f/w));
+    }
     public void draw(Canvas canvas, Paint paint) {
         canvas.save();
         canvas.translate(x,y);
@@ -43,7 +49,7 @@ public class ColorSlider {
     public boolean handleTouch(MotionEvent event) {
         float x = event.getX(),y = event.getY();
         if(x>=this.x+colorSliderCircle.x-colorSliderCircle.r && x<=this.x+colorSliderCircle.x+colorSliderCircle.r  && y>=this.y && y<=this.y+h) {
-
+            colorSliderCircle.handleTap(event);
         }
         return false;
     }
