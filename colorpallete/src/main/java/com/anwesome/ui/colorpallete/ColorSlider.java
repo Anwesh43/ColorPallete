@@ -86,4 +86,7 @@ public class ColorSlider {
             return isDown;
         }
     }
+    public int hashCode() {
+        return color+colorChar+(int)(y);
+    }
 }
