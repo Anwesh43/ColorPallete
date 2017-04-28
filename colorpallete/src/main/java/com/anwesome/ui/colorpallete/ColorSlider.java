@@ -40,8 +40,16 @@ public class ColorSlider {
         canvas.restore();
         canvas.restore();
     }
+    public boolean handleTouch(MotionEvent event) {
+        float x = event.getX(),y = event.getY();
+        if(x>=this.x+colorSliderCircle.x-colorSliderCircle.r && x<=this.x+colorSliderCircle.x+colorSliderCircle.r  && y>=this.y && y<=this.y+h) {
+
+        }
+        return false;
+    }
     private class ColorSliderCircle {
         private float x,y,r;
+        private boolean isDown = false;
         public ColorSliderCircle() {
             this.y = h/2;
             this.r = h/2+h/30;
@@ -50,6 +58,26 @@ public class ColorSlider {
         public void draw(Canvas canvas,Paint paint) {
             paint.setColor(color);
             canvas.drawCircle(x,y,r,paint);
+        }
+        public boolean handleTap(MotionEvent event) {
+            switch(event.getAction()) {
+                case MotionEvent.ACTION_DOWN:
+                    if(!isDown) {
+                        isDown = true;
+                    }
+                    break;
+                case MotionEvent.ACTION_MOVE:
+                    if(isDown) {
+                        x = event.getX()-ColorSlider.this.x;
+                    }
+                    break;
+                case MotionEvent.ACTION_UP:
+                    if(!isDown) {
+                        isDown = false;
+                    }
+                    break;
+            }
+            return isDown;
         }
     }
 }
