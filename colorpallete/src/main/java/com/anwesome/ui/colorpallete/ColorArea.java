@@ -23,4 +23,7 @@ public class ColorArea {
         paint.setColor(color);
         canvas.drawRoundRect(new RectF(x,y,w,h),Math.max(w,h)/10,Math.max(w,h)/10,paint);
     }
+    public void updateColor(int color) {
+        this.color = color;
+    }
 }

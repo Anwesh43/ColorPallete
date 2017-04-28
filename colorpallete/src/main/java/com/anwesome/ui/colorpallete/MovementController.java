@@ -13,9 +13,11 @@ import java.util.Map;
 public class MovementController {
     private Map<Character,ColorSlider> colorSliderMap = new LinkedHashMap<>();
     private View view;
-    public MovementController(View view,Map<Character,ColorSlider> colorSliders) {
+    private ColorArea colorArea;
+    public MovementController(View view,Map<Character,ColorSlider> colorSliders,ColorArea colorArea) {
         this.view = view;
         this.colorSliderMap = colorSliders;
+        this.colorArea = colorArea;
     }
     public void handleTouch(MotionEvent event) {
         List<ColorSlider> colorSliders = (List)colorSliderMap.values();
@@ -30,6 +32,7 @@ public class MovementController {
     private void adjustColor() {
         int a = colorSliderMap.get('a').getValue(),r = colorSliderMap.get('r').getValue(),g = colorSliderMap.get('g').getValue(),b = colorSliderMap.get('b').getValue();
         int newColor = Color.argb(a,r,g,b);
+        colorArea.updateColor(newColor);
         view.postInvalidate();
     }
 }
