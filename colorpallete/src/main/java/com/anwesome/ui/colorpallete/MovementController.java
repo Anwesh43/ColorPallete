@@ -20,9 +20,9 @@ public class MovementController {
         this.colorArea = colorArea;
     }
     public void handleTouch(MotionEvent event) {
-        List<ColorSlider> colorSliders = (List)colorSliderMap.values();
-        if(colorSliders.size() == 4) {
-            for (ColorSlider colorSlider : colorSliders) {
+
+        if(colorSliderMap.values().size() == 3) {
+            for (ColorSlider colorSlider : colorSliderMap.values()) {
                 if (colorSlider.handleTouch(event)) {
                     adjustColor();
                 }
@@ -30,9 +30,9 @@ public class MovementController {
         }
     }
     private void adjustColor() {
-        int a = 255,r = colorSliderMap.get('r').getValue(),g = colorSliderMap.get('g').getValue(),b = colorSliderMap.get('b').getValue();
-        int newColor = Color.argb(a,r,g,b);
-        colorArea.updateColor(newColor);
+//        int a = 255,r = colorSliderMap.get('r').getValue(),g = colorSliderMap.get('g').getValue(),b = colorSliderMap.get('b').getValue();
+//        int newColor = Color.argb(a,r,g,b);
+//        colorArea.updateColor(newColor);
         view.postInvalidate();
     }
 }
