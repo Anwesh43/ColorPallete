@@ -31,11 +31,12 @@ public class ColorPalleteView extends View{
     public void onDraw(Canvas canvas) {
         if(time == 0){
             int w = canvas.getWidth(),h = canvas.getHeight();
-            colorArea.setDimension(w/2-w/4,h/4,w/2,w/2);
-            int sliderH = h/15,sliderW = 4*w/5,sliderX = w/10,sliderY = h/2+h/6;
+            int colorAreaSize = Math.min(w,h)/2;
+            colorArea.setDimension(w/2-colorAreaSize/2,h/3-colorAreaSize/2,Math.min(w,h)/2,Math.min(w,h)/2);
+            int sliderH = Math.min(w,h)/15,sliderW = 4*w/5,sliderX = w/10,sliderY = h/2+h/6;
             for(ColorSlider colorSlider:colorSliderMap.values()) {
                 colorSlider.setDimension(sliderX,sliderY,sliderW,sliderH);
-                sliderY += h/15+h/20;
+                sliderY += 2*sliderH;
             }
             movementController = new MovementController(this,colorSliderMap,colorArea);
         }
