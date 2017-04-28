@@ -31,7 +31,7 @@ public class ColorPalleteView extends View{
     public void onDraw(Canvas canvas) {
         if(time == 0){
             int w = canvas.getWidth(),h = canvas.getHeight();
-            colorArea.setDimension(w/2-w/6,h/6,w/3,h/3);
+            colorArea.setDimension(w/2-w/4,h/4,w/2,w/2);
             int sliderH = h/15,sliderW = 4*w/5,sliderX = w/10,sliderY = h/2+h/6;
             for(ColorSlider colorSlider:colorSliderMap.values()) {
                 colorSlider.setDimension(sliderX,sliderY,sliderW,sliderH);
@@ -39,9 +39,11 @@ public class ColorPalleteView extends View{
             }
             movementController = new MovementController(this,colorSliderMap,colorArea);
         }
+        canvas.save();
         for(ColorSlider colorSlider:colorSliderMap.values()) {
             colorSlider.draw(canvas,paint);
         }
+        canvas.restore();
         colorArea.draw(canvas,paint);
         time++;
     }

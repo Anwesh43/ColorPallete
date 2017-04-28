@@ -59,7 +59,7 @@ public class ColorSlider {
         private boolean isDown = false;
         public ColorSliderCircle() {
             this.y = h/2;
-            this.r = h/2+h/30;
+            this.r = h/2+h/10;
             this.x = r;
         }
         public void draw(Canvas canvas,Paint paint) {
