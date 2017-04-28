@@ -1,6 +1,7 @@
 package com.anwesome.ui.colorpallete;
 
 import android.graphics.Color;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import java.util.LinkedHashMap;
@@ -30,9 +31,11 @@ public class MovementController {
         }
     }
     private void adjustColor() {
-//        int a = 255,r = colorSliderMap.get('r').getValue(),g = colorSliderMap.get('g').getValue(),b = colorSliderMap.get('b').getValue();
-//        int newColor = Color.argb(a,r,g,b);
-//        colorArea.updateColor(newColor);
+        int a = 255,r = colorSliderMap.get('r').getValue(),g = colorSliderMap.get('g').getValue(),b = colorSliderMap.get('b').getValue();
+        int newColor = Color.argb(a,r,g,b);
+        colorArea.updateColor(newColor);
+
+        Log.d("newColor",String.format("(%d,%d,%d)",r,g,b));
         view.postInvalidate();
     }
 }

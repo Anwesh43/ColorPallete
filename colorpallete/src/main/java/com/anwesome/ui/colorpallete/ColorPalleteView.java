@@ -26,7 +26,7 @@ public class ColorPalleteView extends View{
     public void initColorSliderMap() {
         colorSliderMap.put('r',new ColorSlider('r',Color.RED));
         colorSliderMap.put('g',new ColorSlider('g',Color.GREEN));
-        colorSliderMap.put('B',new ColorSlider('B',Color.BLUE));
+        colorSliderMap.put('b',new ColorSlider('b',Color.BLUE));
     }
     public void onDraw(Canvas canvas) {
         if(time == 0){
