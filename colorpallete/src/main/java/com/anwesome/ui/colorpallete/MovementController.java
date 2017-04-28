@@ -30,7 +30,7 @@ public class MovementController {
         }
     }
     private void adjustColor() {
-        int a = colorSliderMap.get('a').getValue(),r = colorSliderMap.get('r').getValue(),g = colorSliderMap.get('g').getValue(),b = colorSliderMap.get('b').getValue();
+        int a = 255,r = colorSliderMap.get('r').getValue(),g = colorSliderMap.get('g').getValue(),b = colorSliderMap.get('b').getValue();
         int newColor = Color.argb(a,r,g,b);
         colorArea.updateColor(newColor);
         view.postInvalidate();
